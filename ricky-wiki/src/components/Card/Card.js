@@ -20,13 +20,41 @@ const Card = ({ results }) => {
                             <div className="">
                                 <div className="fs-6 fw-normal">Last Location</div>
                                 <div className="fs-5">{location.name}</div>
+
                             </div>
                         </div>
                     </div>
+                    {(() => {
+                        if (status === "Dead") {
+                            return (
+                                <div
+                                    className={`${styles.badge} position-absolute badge bg-danger`}
+                                >
+                                    {status}
+                                </div>
+                            );
+                        } else if (status === "Alive") {
+                            return (
+                                <div
+                                    className={`${styles.badge} position-absolute badge bg-success`}
+                                >
+                                    {status}
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div
+                                    className={`${styles.badge} position-absolute badge bg-secondary`}
+                                >
+                                    {status}
+                                </div>
+                            );
+                        }
+                    })()}
                 </div>
             );
         });
-        
+
     } else {
         display = "Way to go Morty! You found nothing!";
     }
