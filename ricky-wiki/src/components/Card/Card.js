@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Card.module.css";
+import styles from "./Card.module.scss";
 
 const Card = ({ results }) => {
     let display;
@@ -24,11 +24,14 @@ const Card = ({ results }) => {
                         </div>
                     </div>
                 </div>
-            )
-        }
+            );
+        });
+        
     } else {
         display = "Way to go Morty! You found nothing!";
     }
 
     return <>{display}</>;
 }
+
+export default Card;
