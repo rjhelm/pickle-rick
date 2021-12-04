@@ -12,7 +12,7 @@ import Search from "./components/Search/Search";
 
 
 function App() {
-  let api = `https://rickandmortyapi.com/api/character/?page={pageNumber}&name={search}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
   let [pageNumber, updatePageNumber] = useState(1);
@@ -42,6 +42,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Pagination info={info} pageNumbe={pageNumber} updatePageNumber={updatePageNumber} />
     </div>
   );
 }
