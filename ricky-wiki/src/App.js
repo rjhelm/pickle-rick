@@ -12,9 +12,12 @@ import Search from "./components/Search/Search";
 
 
 function App() {
-  let api = `https://rickandmortyapi.com/api/character/?page=1`
+  let api = `https://rickandmortyapi.com/api/character/?page={pageNumber}&name={search}`;
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
+  let [pageNumber, updatePageNumber] = useState(1);
+  let [search, setSearch] = useState("");
+
 
   useEffect(() => {
     (async function () {
@@ -25,6 +28,8 @@ function App() {
 
   return (
     <div className="App">
+      <h1 className="text-center">Rick and Morty Characters</h1>
+      <Search setSearch={setSearch} updatePageNumber={updatePageNumber} />
       <div className="text-center mb-3">
         <div className="container">
           <div className="row">
