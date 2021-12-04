@@ -17,7 +17,9 @@ function App() {
   let { info, results } = fetchedData;
   let [pageNumber, updatePageNumber] = useState(1);
   let [search, setSearch] = useState("");
-
+  let [status, updateStatus] = useState("");
+  let [gender, updateGender] = useState("");
+  let [species, updateSpecies] = useState(""); 
 
   useEffect(() => {
     (async function () {
@@ -33,7 +35,14 @@ function App() {
       <div className="text-center mb-3">
         <div className="container">
           <div className="row">
-            Filter Component will be placed here
+            <Filter
+              pageNumber={pageNumber}
+              status={status}
+              updateStatus={updateStatus}
+              updateGender={updateGender}
+              updateSpecies={updateSpecies}
+              updatePageNumber={updatePageNumber}
+            />
             <div className="col-log-8 col-md-12">
               <div className="row">
                 <Card results={results} />
