@@ -13,11 +13,13 @@ const Filter = ({ pageNumber, updatePageNumber, updateSpecies, updateGender, upd
     }
     return (
         <div className="col-lg-2 col-12 mb-5">
+        
             <div style={{ cursor: "pointer" }} onClick={clear}>
                 Clear Filters
             </div>
             <div className="accordian" id="accordianExamples">
-                {/* Category Components will be placed here */}
+                <Status updateStatus={updateStatus} updatePageNumber={updatePageNumber} />
+                <Species updatePageNumber={updatePageNumber} updateSpecies={updateSpecies} />
             </div>
         </div>
     )
