@@ -20,6 +20,7 @@ const Filter = ({ pageNumber, updatePageNumber, updateSpecies, updateGender, upd
             <div className="accordian" id="accordianExamples">
                 <Status updateStatus={updateStatus} updatePageNumber={updatePageNumber} />
                 <Species updatePageNumber={updatePageNumber} updateSpecies={updateSpecies} />
+                <Gender updatePageNumber={updatePageNumber} updateGender={updateGender} />
             </div>
         </div>
     )

@@ -8,10 +8,12 @@ import Filter from "./components/Filter/Filter";
 import Navbar from "./components/Navbar/Navbar";
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
+import Episodes from "./pages/Episodes";
+import Location from "./pages/Location";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
-
-function App() {
+const Home = () => {
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
@@ -53,6 +55,22 @@ function App() {
       </div>
       <Pagination info={info} pageNumbe={pageNumber} updatePageNumber={updatePageNumber} />
     </div>
+  );
+}
+
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Navbar />
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="episodes" element={<Episodes />} />
+        <Route path="location" element={<Location />} />
+      </Routes>
+    </Router>
   );
 }
 
